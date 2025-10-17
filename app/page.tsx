@@ -59,22 +59,22 @@ function RhodaLandingContent() {
 
   return (
     <motion.div
-      className={`min-h-screen ${themeClasses.background} ${themeClasses.text} overflow-hidden transition-all duration-500`}
+      className={`min-h-screen ${themeClasses.background} ${themeClasses.text} overflow-hidden transition-all duration-500 flex flex-col`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       {/* Header */}
       <motion.header
-        className="flex items-center justify-between p-6 relative z-10"
+        className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 px-4 sm:px-8 py-4 sm:py-6 relative z-10 w-full"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         {/* Original Enhanced Vireya Logo */}
-        <motion.div className="relative" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
+        <motion.div className="relative mb-2 sm:mb-0" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
           <motion.h1
-            className={`text-4xl font-bold bg-gradient-to-r ${
+            className={`text-3xl xs:text-4xl md:text-5xl font-bold bg-gradient-to-r ${
               theme === "dark" ? "from-yellow-400 via-orange-500 to-red-500" : "from-purple-600 via-pink-500 to-red-500"
             } bg-clip-text text-transparent relative`}
             animate={{
@@ -128,7 +128,7 @@ function RhodaLandingContent() {
           />
         </motion.div>
 
-        <div className="flex items-center gap-4 relative">
+  <div className="flex items-center gap-2 sm:gap-4 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -157,15 +157,15 @@ function RhodaLandingContent() {
       </motion.header>
 
       {/* Main Content */}
-      <div className="flex items-center justify-between px-6 py-12 relative">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-between px-4 sm:px-8 py-8 sm:py-12 gap-8 md:gap-0 relative w-full flex-1">
         {/* Left Content */}
-        <div className="flex-1 max-w-lg">
+        <div className="flex-1 max-w-lg w-full text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight">
               Welcome to{" "}
               <motion.span
                 className="relative"
@@ -197,7 +197,7 @@ function RhodaLandingContent() {
           </motion.div>
 
           <motion.p
-            className={`text-lg ${themeClasses.textSecondary} mb-8 leading-relaxed transition-colors duration-300`}
+            className={`text-base xs:text-lg ${themeClasses.textSecondary} mb-6 md:mb-8 leading-relaxed transition-colors duration-300`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
@@ -212,11 +212,11 @@ function RhodaLandingContent() {
           >
             <Button
               size="lg"
-              className={`${
+              className={`$${
                 theme === "dark"
                   ? "bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
                   : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
-              } text-white font-semibold px-8 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105 hover:shadow-xl`}
+              } text-white font-semibold px-6 md:px-8 py-3 rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105 hover:shadow-xl w-full md:w-auto`}
             >
               Share your first content
             </Button>
@@ -225,7 +225,7 @@ function RhodaLandingContent() {
 
         {/* Right Illustration */}
         <motion.div
-          className="flex-1 flex justify-center items-center relative"
+          className="flex-1 flex justify-center items-center relative w-full min-h-[220px]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
@@ -260,13 +260,14 @@ function RhodaLandingContent() {
               alt="Portrait of a woman with natural curly hair"
               width={400}
               height={500}
-              className="max-w-full h-auto relative z-10"
+              className="max-w-[220px] xs:max-w-[300px] md:max-w-[400px] w-full h-auto relative z-10"
+              priority
             />
           </motion.div>
 
           {/* Floating Elements */}
           <motion.div
-            className={`absolute top-10 left-10 w-8 h-8 ${themeClasses.floatingElements} rounded-full ${themeClasses.backdrop} transition-colors duration-300`}
+            className={`hidden xs:block absolute top-4 left-4 md:top-10 md:left-10 w-5 h-5 md:w-8 md:h-8 ${themeClasses.floatingElements} rounded-full ${themeClasses.backdrop} transition-colors duration-300`}
             animate={{
               y: [0, -15, 0],
               x: [0, 10, 0],
@@ -280,7 +281,7 @@ function RhodaLandingContent() {
           />
 
           <motion.div
-            className={`absolute bottom-20 right-10 w-6 h-6 rounded-full ${themeClasses.backdrop} transition-colors duration-300 ${
+            className={`hidden xs:block absolute bottom-8 right-4 md:bottom-20 md:right-10 w-4 h-4 md:w-6 md:h-6 rounded-full ${themeClasses.backdrop} transition-colors duration-300 ${
               theme === "dark" ? "bg-yellow-400/30" : "bg-orange-400/40"
             }`}
             animate={{
@@ -296,7 +297,7 @@ function RhodaLandingContent() {
           />
 
           <motion.div
-            className={`absolute top-1/2 right-0 w-4 h-4 rounded-full ${themeClasses.backdrop} transition-colors duration-300 ${
+            className={`hidden xs:block absolute top-1/2 right-0 w-2 h-2 md:w-4 md:h-4 rounded-full ${themeClasses.backdrop} transition-colors duration-300 ${
               theme === "dark" ? "bg-green-400/40" : "bg-blue-400/50"
             }`}
             animate={{
@@ -315,13 +316,13 @@ function RhodaLandingContent() {
 
       {/* Footer with Professional Creative Social Icons */}
       <motion.footer
-        className="absolute bottom-0 left-0 right-0 p-6"
+        className="w-full px-4 sm:px-8 py-4 sm:py-6 mt-auto relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.6 }}
       >
-        <div className="flex items-center justify-between">
-          <div className={`flex items-center gap-6 ${themeClasses.textMuted} transition-colors duration-300`}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 w-full">
+          <div className={`flex flex-wrap items-center gap-3 sm:gap-6 ${themeClasses.textMuted} transition-colors duration-300 justify-center sm:justify-start`}>
             <motion.a
               href="#"
               className={`${themeClasses.text} transition-colors hover:opacity-80`}
@@ -356,7 +357,7 @@ function RhodaLandingContent() {
           </div>
 
           {/* Professional Creative Social Media Icons */}
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-3 sm:gap-5 mt-4 sm:mt-0">
             {socialIcons.map((social, index) => (
               <motion.div
                 key={social.name}
@@ -482,7 +483,7 @@ function RhodaLandingContent() {
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className={`absolute top-1/4 left-1/4 w-32 h-32 ${themeClasses.decorativeElements} rounded-full blur-xl transition-colors duration-500`}
+          className={`hidden sm:block absolute top-1/4 left-1/4 w-20 h-20 md:w-32 md:h-32 ${themeClasses.decorativeElements} rounded-full blur-xl transition-colors duration-500`}
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -494,7 +495,7 @@ function RhodaLandingContent() {
           }}
         />
         <motion.div
-          className={`absolute bottom-1/4 right-1/4 w-24 h-24 rounded-full blur-xl transition-colors duration-500 ${
+          className={`hidden sm:block absolute bottom-1/4 right-1/4 w-16 h-16 md:w-24 md:h-24 rounded-full blur-xl transition-colors duration-500 ${
             theme === "dark" ? "bg-yellow-400/10" : "bg-orange-400/20"
           }`}
           animate={{
