@@ -20,7 +20,7 @@ from django.http import JsonResponse
 from rest_framework.routers import DefaultRouter
 from content.views import ContentViewSet
 from support.views import SupportTicketViewSet
-from analytics.views import summary
+from analytics.views import summary, welcome
 
 router = DefaultRouter()
 router.register(r'content', ContentViewSet, basename='content')
@@ -31,4 +31,5 @@ urlpatterns = [
     path('health/', lambda request: JsonResponse({'status': 'ok'})),
     path('api/', include(router.urls)),
     path('api/analytics/summary/', summary),
+    path('api/welcome/', welcome),
 ]

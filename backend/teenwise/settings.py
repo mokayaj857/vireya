@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     # Project apps
     'analytics',
     'content',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,7 +63,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -77,6 +78,15 @@ WSGI_APPLICATION = 'teenwise.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+# CORS settings for development only
+# In production, remove CORS_ALLOW_ALL_ORIGINS and set CORS_ALLOWED_ORIGINS to specific domains
+CORS_ALLOW_ALL_ORIGINS = True
+# If you prefer to limit origins during dev, uncomment and set CORS_ALLOWED_ORIGINS
+# CORS_ALLOWED_ORIGINS = [
+#     'http://127.0.0.1:3000',
+#     'http://localhost:3000',
+# ]
 
 DATABASES = {
     'default': {
@@ -134,3 +144,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
 }
+
+# CORS settings for local development
+CORS_ALLOW_ALL_ORIGINS = True
