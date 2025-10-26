@@ -62,6 +62,10 @@ const config: Config = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
+  			},
+  			drug: {
+  				teal: '#166c73',
+  				emerald: '#198c6b'
   			}
   		},
   		borderRadius: {
