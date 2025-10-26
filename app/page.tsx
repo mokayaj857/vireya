@@ -313,7 +313,7 @@ function RhodaLandingContent() {
 
       {/* Footer with Professional Creative Social Icons */}
       <motion.footer
-        className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 mt-auto relative z-10"
+        className="px-4 sm:px-8 py-4 sm:py-6 mt-auto relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.6 }}
@@ -354,7 +354,7 @@ function RhodaLandingContent() {
           </div>
 
           {/* Professional Creative Social Media Icons */}
-          <div className="flex items-center gap-2 sm:gap-4 mt-2 sm:mt-0">
+          <div className="flex items-center gap-2 sm:gap-4 mt-2 sm:mt-0 px-6">
             {socialIcons.map((social, index) => (
               <motion.div
                 key={social.name}
